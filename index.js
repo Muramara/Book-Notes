@@ -14,6 +14,9 @@ const db = new pg.Client({
 });
 db.connect();
 
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("public"));
+
 let currentUserId = 1;
 
 async function checkUsers(){
@@ -43,8 +46,22 @@ app.get("/", async (req,res) => {
     });
 });
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("public"));
+app.post("/user", async (req,res) => {
+    if(req.body["user"]){
+
+    }else if(req.body["add"]){
+        res.render("user.ejs");
+    }
+});
+
+app.post("/register", async (req,res) => {
+    try {
+        await db.query(`INSERT INTO users(name) VALUES('${req.body["name"]}')`);
+        res.redirect("/");
+    } catch (error) {
+        console.log(error);
+    }
+});
 
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
