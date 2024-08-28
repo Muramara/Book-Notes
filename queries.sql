@@ -12,5 +12,7 @@ CREATE TABLE notes (
     user_id INT REFERENCES users(id)
 );
 
+ALTER TABLE notes ADD COLUMN isbn INT;
+
 SELECT * FROM notes
 JOIN users ON users.id = notes.user_id;
