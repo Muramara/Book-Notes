@@ -14,10 +14,23 @@ const db = new pg.Client({
 });
 db.connect();
 
-// app.get("/", async (req,res) => {
-//     const response = await axios.get("https://covers.openlibrary.org/b/isbn/1419741853.json");
-//     const url = response.data.source_url;
-// });
+let currentUserId = 1;
+
+async function checkUsers(){
+    const result = await db.query(`SELECT * FROM users`);
+    let users = [];
+    result.rows.forEach((user) => {
+        users.push(user);
+    });
+    return users;
+}
+
+app.get("/", async (req,res) => {
+    const users = await checkUsers();
+    res.render("index.ejs", {
+        users: users
+    });
+});
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
