@@ -19,9 +19,11 @@
             <label for="date">Date Read</label>
             <input type="date" name="date" value="<%= note.date %>"><br>
             <label for="notes">Notes</label>
-            <textarea name="notes"><%= note.notes %></textarea>
+            <textarea name="notes"><%= note.notes %></textarea><br>
             <label for="rating">Rating /10</label>
             <input type="number" name="title" value="<%= note.rating %>"><br>
+            <input type="submit" value="Edit" formaction="/edit">
+            <input type="submit" value="Delete" formaction="/delete">
         </form>
     <% }) %>
 </body>
