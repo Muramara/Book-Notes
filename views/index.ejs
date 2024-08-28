@@ -6,12 +6,14 @@
     <title>Book Notes</title>
 </head>
 <body>
-    <form action="/user" method="post">
+    <form method="post">
         <% users.forEach(user => { %>
-            <input type="submit" name="user" value="<%= user.name %>">
+            <input type="submit" name="user" value="<%= user.name %>" formaction="/user">
         <% }); %>
-        <input type="submit" name="add" value="Add User">
+        <input type="submit" name="add" value="Add User" formaction="/addUser"><br>
+        <input type="submit" value="Review Book" formaction="/addReview">
     </form>
+    
     <% notes.forEach((note) => {%>
         <form method="post">
             <label for="title">Book Title</label>
