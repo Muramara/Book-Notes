@@ -47,11 +47,13 @@ app.get("/", async (req,res) => {
 });
 
 app.post("/user", async (req,res) => {
-    if(req.body["user"]){
+    const result = await db.query(`SELECT id FROM users WHERE name = '${req.body["user"]}'`);
+    currentUserId = result.rows[0].id;
+    res.redirect("/");
+});
 
-    }else if(req.body["add"]){
-        res.render("user.ejs");
-    }
+app.post("/addUser", async (req,res) => {
+    res.render("user.ejs");
 });
 
 app.post("/register", async (req,res) => {
