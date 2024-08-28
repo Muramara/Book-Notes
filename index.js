@@ -14,6 +14,11 @@ const db = new pg.Client({
 });
 db.connect();
 
+// app.get("/", async (req,res) => {
+//     const response = await axios.get("https://covers.openlibrary.org/b/isbn/1419741853.json");
+//     const url = response.data.source_url;
+// });
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
