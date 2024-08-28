@@ -12,5 +12,17 @@
         <% }); %>
         <input type="submit" name="add" value="Add User">
     </form>
+    <% notes.forEach((note) => {%>
+        <form method="post">
+            <label for="title">Book Title</label>
+            <input type="text" name="title" value="<%= note.title %>"><br>
+            <label for="date">Date Read</label>
+            <input type="date" name="date" value="<%= note.date %>"><br>
+            <label for="notes">Notes</label>
+            <textarea name="notes"><%= note.notes %></textarea>
+            <label for="rating">Rating /10</label>
+            <input type="number" name="title" value="<%= note.rating %>"><br>
+        </form>
+    <% }) %>
 </body>
 </html>
