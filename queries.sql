@@ -14,5 +14,6 @@ CREATE TABLE notes (
 
 ALTER TABLE notes ADD COLUMN isbn INT;
 
-SELECT * FROM notes
-JOIN users ON users.id = notes.user_id;
+ALTER TABLE users ADD CONSTRAINT one_name UNIQUE(name);
+
+SELECT * FROM notes JOIN users ON users.id = notes.user_id;
