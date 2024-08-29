@@ -61,7 +61,9 @@ app.post("/register", async (req,res) => {
         await db.query(`INSERT INTO users(name) VALUES('${req.body["name"]}')`);
         res.redirect("/");
     } catch (error) {
-        console.log(error);
+        res.render("user.ejs", {
+            error: 'Name already taken'
+        });
     }
 });
 
