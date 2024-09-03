@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post">
+        <input type="text" name="user_id" value="<%= user_id %>" hidden>
+        <label for="isbn">Book ISBN</label>
+        <input type="text" name="isbn" value="<%= isbn %>"><br>
+        <label for="title">Book Title</label>
+        <input type="text" name="title" value="<%= title %>"><br>
+        <label for="date">Date Read</label>
+        <input type="text" name="date" value="<%= date %>"><br>
+        <label for="notes">Notes</label>
+        <textarea name="notes"><%= notes %></textarea><br>
+        <label for="rating">Rating /10</label>
+        <input type="number" name="rating" value="<%= rating %>"><br>
+        <input type="submit" value="Save" formaction="/save">
+    </form>
+</body>
+</html>

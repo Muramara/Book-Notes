@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review</title>
+</head>
+<body>
+    <p>Get book ISBN numbers from this link: <a href="https://isbnsearch.org/" target="_blank">https://isbnsearch.org/</a></p>
+    <p>Use the ISBN-10 value</p>
+    <%= locals.message ? message :  ''%>
+    <form action="/review" method="post">
+        <input type="text" name="user_id" value="<%= user_id %>" hidden>
+        <label for="title">Book ISBN</label>
+        <input type="text" name="isbn"><br>
+        <label for="title">Book Title</label>
+        <input type="text" name="title"><br>
+        <label for="date">Date Read</label>
+        <input type="date" name="date"><br>
+        <label for="notes">Notes</label>
+        <textarea name="notes"></textarea><br>
+        <label for="rating">Rating /10</label>
+        <input type="number" name="rating"><br>
+        <input type="submit" value="Save">
+    </form>
+</body>
+</html>
