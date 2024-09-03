@@ -6,27 +6,32 @@
     <title>Book Notes</title>
 </head>
 <body>
+    
     <form method="post">
         <% users.forEach(user => { %>
             <input type="submit" name="user" value="<%= user.name %>" formaction="/user">
         <% }); %>
-        <input type="submit" name="add" value="Add User" formaction="/addUser"><br>
+        <input type="submit" name="add" value="Add User" formaction="/addUser">
         <input type="submit" value="Review Book" formaction="/addReview">
-    </form>
+    </form><br>
     
     <% notes.forEach((note) => {%>
+        <img src="<%= note.cover_url %>" alt="Cover Photo" width="200" height="300">
         <form method="post">
+            <input type="number" name="note_id" value="<%= note.id %>" hidden>
+            <label for="isbn">Book ISBN</label>
+            <input type="text" name="isbn" value="<%= note.isbn %>" readonly><br>
             <label for="title">Book Title</label>
-            <input type="text" name="title" value="<%= note.title %>"><br>
+            <input type="text" name="title" value="<%= note.title %>" readonly><br>
             <label for="date">Date Read</label>
-            <input type="date" name="date" value="<%= note.date %>"><br>
+            <input type="text" name="date" value="<%= note.date_read %>" readonly><br>
             <label for="notes">Notes</label>
-            <textarea name="notes"><%= note.notes %></textarea><br>
+            <textarea name="notes" readonly><%= note.notes %></textarea><br>
             <label for="rating">Rating /10</label>
-            <input type="number" name="title" value="<%= note.rating %>"><br>
+            <input type="number" name="rating" value="<%= note.rating %>" readonly><br>
             <input type="submit" value="Edit" formaction="/edit">
             <input type="submit" value="Delete" formaction="/delete">
-        </form>
+        </form><br>
     <% }) %>
 </body>
 </html>
