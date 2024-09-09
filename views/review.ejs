@@ -4,24 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Review</title>
+    <link rel="stylesheet" href="/styles/layout.css">
+    <link rel="stylesheet" href="/styles/content.css">
 </head>
-<body>
-    <p>Get book ISBN numbers from this link: <a href="https://isbnsearch.org/" target="_blank">https://isbnsearch.org/</a></p>
-    <p>Use the ISBN-10 value</p>
-    <%= locals.message ? message :  ''%>
-    <form action="/review" method="post">
-        <input type="text" name="user_id" value="<%= user_id %>" hidden>
-        <label for="title">Book ISBN</label>
-        <input type="text" name="isbn"><br>
-        <label for="title">Book Title</label>
-        <input type="text" name="title"><br>
-        <label for="date">Date Read</label>
-        <input type="date" name="date"><br>
-        <label for="notes">Notes</label>
-        <textarea name="notes"></textarea><br>
-        <label for="rating">Rating /10</label>
-        <input type="number" name="rating"><br>
-        <input type="submit" value="Save">
-    </form>
+<body class="rev-body">
+    <div class="instructions">
+        <p>Get book ISBN numbers from this link: <a href="https://isbnsearch.org/" target="_blank">https://isbnsearch.org/</a></p>
+        <p>Use the ISBN-10 value</p>
+        <p>For reference, this website uses the Open Library Cover API (<a href="https://isbnsearch.org/" target="_blank">https://openlibrary.org/dev/docs/api/covers</a>) to fetch book covers</p>
+    </div>
+    <div>
+        <div><%= locals.message ? message :  ''%></div>
+        <form action="/review" method="post" class="rev-form">
+            <input type="text" name="user_id" value="<%= user_id %>" hidden>
+            <input type="text" name="isbn" placeholder="Enter book ISBN-10 value"><br>
+            <input type="text" name="title" placeholder="Enter book title"><br>
+            <input type="text" name="date" placeholder="Enter date read" onfocus="this.type='date'" onblur="this.type='text'"><br>
+            <textarea name="notes" placeholder="Enter notes..."></textarea><br>
+            <input type="number" name="rating" placeholder="Enter rating /10"><br>
+            <input type="submit" value="Save">
+        </form>
+    </div>
 </body>
 </html>

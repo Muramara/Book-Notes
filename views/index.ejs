@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Notes</title>
+    <link rel="stylesheet" href="/styles/layout.css">
+    <link rel="stylesheet" href="/styles/content.css">
 </head>
-<body>
-    
-    <div>
+
+<body class="index-body">
+
+    <div class="menu">
         <form method="post">
             <% users.forEach(user => { %>
                 <input type="submit" name="user" value="<%= user.name %>" formaction="/user">
@@ -19,24 +22,28 @@
     
     <div>
         <% notes.forEach((note) => {%>
-            <div>
-                <img src="<%= note.cover_url %>" alt="Cover Photo" width="200" height="300">
-                <div>
-                    <form method="post">
-                        <input type="number" name="note_id" value="<%= note.id %>" hidden>
-                        <label for="isbn">Book ISBN</label>
-                        <input type="text" name="isbn" value="<%= note.isbn %>" readonly><br>
-                        <label for="title">Book Title</label>
-                        <input type="text" name="title" value="<%= note.title %>" readonly><br>
-                        <label for="date">Date Read</label>
-                        <input type="text" name="date" value="<%= note.date_read %>" readonly><br>
-                        <label for="notes">Notes</label>
-                        <textarea name="notes" readonly><%= note.notes %></textarea><br>
-                        <label for="rating">Rating /10</label>
-                        <input type="number" name="rating" value="<%= note.rating %>" readonly><br>
-                        <input type="submit" value="Edit" formaction="/edit">
-                        <input type="submit" value="Delete" formaction="/delete">
-                    </form>
+            <div class="outer-rev">
+                <div class="review">
+                    <div class="img-div"><img src="<%= note.cover_url %>" alt="Cover Photo" width="200" height="300"></div>
+                    <div class="notes">
+                        <form method="post">
+                            <input type="number" name="note_id" value="<%= note.id %>" hidden>
+                            <input type="text" name="isbn" value="<%= note.isbn %>" readonly hidden>
+                            <input type="text" name="title" value="<%= note.title %>" readonly hidden>
+                            <input type="text" name="date" value="<%= note.date_read %>" readonly hidden>
+                            <textarea name="notes" readonly hidden><%= note.notes %></textarea>
+                            <input type="number" name="rating" value="<%= note.rating %>" readonly hidden>
+                            <div class="info"><p>ISBN 10 value: <%= note.isbn %></p></div>
+                            <div class="info"><p><%= note.title %></p></div>
+                            <div class="info"><p><%= note.date_read %></p></div>
+                            <div class="info"><p><%= note.notes %></p></div>
+                            <div class="info"><p><%= note.rating %>/10</p></div>
+                            <div>
+                                <input class="edit-btn" type="submit" value="Edit" formaction="/edit">
+                                <input class="delete-btn" type="submit" value="Delete" formaction="/delete">
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         <% }) %>

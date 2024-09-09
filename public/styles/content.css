@@ -1,0 +1,70 @@
+/* index.ejs */
+.index-body {
+    background-color: black;
+    color: aqua;
+}
+.menu input[type=submit] {
+    background-color: black;
+    color: aqua;
+}
+.img-div {
+    border: solid gold 5px;
+}
+.review img {
+    border: solid gold 5px;
+}
+.edit-btn {
+    background-color: blue;
+    color: white;
+}
+.delete-btn {
+    background-color: red;
+    color: white;
+}
+
+/* user.ejs */
+.reg-body {
+    background-color: black;
+    color: aqua;
+}
+.reg-form input[type=text] {
+    background-color: black;
+    color: aqua;
+    border: none;
+}
+.reg-form input[type=submit] {
+    background-color: green;
+    color: white;
+}
+
+/* review.ejs */
+.rev-body {
+    background-color: black;
+    color: aqua;
+}
+.rev-form input[type=text], .rev-form input[type=number], .rev-form input[type=date], .rev-form textarea {
+    background-color: black;
+    color: aqua;
+    border: none;
+}
+.rev-form input[type=submit] {
+    background-color: green;
+    color: white;
+}
+.instructions a {
+    color: gold;
+}
+
+/* edit.ejs */
+.edit-body {
+    background-color: black;
+    color: aqua;
+}
+.edit-form input[type=text], .edit-form input[type=number], .edit-form textarea {
+    background-color: black;
+    color: aqua;
+}
+.edit-form input[type=submit] {
+    background-color: green;
+    color: white;
+}

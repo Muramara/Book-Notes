@@ -4,21 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/styles/layout.css">
+    <link rel="stylesheet" href="/styles/content.css">
 </head>
-<body>
-    <form method="post">
+<body class="edit-body">
+    <%= locals.message ? message :  ''%>
+    <form method="post" class="edit-form">
         <input type="text" name="user_id" value="<%= user_id %>" hidden>
-        <label for="isbn">Book ISBN</label>
-        <input type="text" name="isbn" value="<%= isbn %>"><br>
-        <label for="title">Book Title</label>
-        <input type="text" name="title" value="<%= title %>"><br>
-        <label for="date">Date Read</label>
-        <input type="text" name="date" value="<%= date %>"><br>
-        <label for="notes">Notes</label>
-        <textarea name="notes"><%= notes %></textarea><br>
-        <label for="rating">Rating /10</label>
-        <input type="number" name="rating" value="<%= rating %>"><br>
-        <input type="submit" value="Save" formaction="/save">
-    </form>
+        <div class="form-segment">
+            <label for="title">Book Title</label>
+            <input type="text" name="title" value="<%= title %>">
+        </div>
+        <div class="form-segment">
+            <label for="date">Date Read</label>
+            <input type="text" name="date" value="<%= date %>">
+        </div>
+        <div class="form-segment">
+            <label for="notes">Notes</label>
+            <textarea name="notes"><%= notes %></textarea>
+        </div>
+        <div class="form-segment">
+            <label for="rating">Rating /10</label>
+            <input type="number" name="rating" value="<%= rating %>">
+        </div>
+        <div class="edit-submit"><input type="submit" value="Save" formaction="/save"></div>
+    </form>  
 </body>
 </html>
