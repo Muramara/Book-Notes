@@ -110,30 +110,19 @@ app.post("/edit", (req, res) => {
 });
 app.post("/save", async (req,res) => {
     const title = req.body["title"];
-    const isbn = req.body["isbn"];
     const user_id = req.body["user_id"];
     const date = req.body["date"];
     const notes = req.body["notes"];
     const rating = req.body["rating"];
 
     try {
-        const response = await axios.get(`https://covers.openlibrary.org/b/isbn/${isbn}.json`);
-        const url = response.data.source_url
-
-        try {
-            await db.query(`UPDATE notes
-                SET isbn = $1, title = $2, date_read = $3, notes = $4, rating = $5 , cover_url = $6
-                WHERE user_id = $7`,
-            [isbn, title, date, notes, rating, url, user_id]);
-            res.redirect("/");
-        } catch (error) {
-            console.log(error);
-        }
+        await db.query(`UPDATE notes
+            SET title = $1, date_read = $2, notes = $3, rating = $4
+            WHERE user_id = $5`,
+        [title, date, notes, rating, user_id]);
+        res.redirect("/");
     } catch (error) {
-        res.render("review.ejs", {
-            user_id: currentUserId,
-            message: 'Enter a different ISBN value'
-        });
+        console.log(error);
     }
 });
 

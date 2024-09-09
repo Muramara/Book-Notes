@@ -1,0 +1,130 @@
+html,body {
+    height: 100%;
+}
+/* SECTION 1 - index.ejs */
+.index-body {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    height: 100%;
+}
+.menu {
+    display: flex;
+    flex-direction: row;
+    width: 100px;
+}
+.menu input[type=submit] {
+    border: none;
+    width: 100%;
+    padding: 16px 8px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    text-align: left;
+}
+.outer-rev {
+    margin: 50px;
+    max-width: 700px;
+}
+.review {
+    display: flex;
+    margin: 5px;
+    padding: 25px;
+}
+.img-div{
+    padding: 5px;
+}
+.review img {
+    padding: 5px;
+}
+.notes{
+    margin: 30px;
+}
+.notes input[type=submit] {
+    border: none;
+    padding: 4px 4px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10%;
+}
+.info{
+    margin: 10px;
+}
+
+
+/* SECTION 2 - user.ejs */
+.reg-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.reg-form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+}
+.reg-form div{
+    margin: 10px;
+}
+.reg-form input[type=submit] {
+    border: none;
+    padding: 4px 4px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10%;
+}
+
+
+/* SECTION 3 - review.ejs */
+.rev-body {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    align-items: center;
+}
+.rev-form input[type=text],.rev-form input[type=number],.rev-form textarea{
+    margin: 10px;
+}
+.rev-form input[type=submit] {
+    border: none;
+    padding: 4px 4px;
+    text-decoration: none;
+    margin: 4px 10px;
+    cursor: pointer;
+    border-radius: 10%;
+}
+
+
+/* SECTION 4 - edit.ejs */
+.edit-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* width: 100vw; */
+}
+.edit-form{
+    width: 50%;
+}
+.edit-body .form-segment {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+}
+.edit-form input[type="submit"]{
+    border: none;
+    padding: 4px 4px;
+    text-decoration: none;
+    margin: 4px 10px;
+    cursor: pointer;
+    border-radius: 10%;
+    margin-left: 120px;
+}
+.edit-submit {
+    display: flex;
+    justify-content: center;
+}

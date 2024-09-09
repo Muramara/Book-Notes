@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    <link rel="stylesheet" href="/styles/layout.css">
+    <link rel="stylesheet" href="/styles/content.css">
 </head>
-<body>
-    <form action="/register" method="post">
-        <label for="name">Name</label>
-        <input type="text" name="name" placeholder="<%= locals.error ? error :  'Enter name'%>"><br>
-        <input type="submit" value="Register">
+<body class="reg-body">
+    <form action="/register" method="post" class="reg-form">
+        <div><input type="text" name="name" placeholder="<%= locals.error ? error :  'Enter name'%>"></div>
+        <div><input type="submit" value="Register"></div>
     </form>
 </body>
 </html>
