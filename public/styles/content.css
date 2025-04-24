@@ -7,6 +7,22 @@
     background-color: black;
     color: aqua;
 }
+.menu input[formaction="/addUser"] {
+    background-color: green;
+    color: white;
+}
+.menu input[formaction="/addReview"] {
+    background-color: blue;
+    color: white;
+}
+.menu input[formaction="/user"] {
+    background-color: white;
+    color: black;
+}
+.active-user {
+    background-color: yellow;
+    color: black;
+}
 .img-div {
     border: solid gold 5px;
 }

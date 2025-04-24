@@ -20,7 +20,7 @@ db.connect();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-let currentUserId = 1;
+let currentUserId = 0;
 
 async function checkUsers(){
     const result = await db.query(`SELECT * FROM users`);
@@ -41,10 +41,17 @@ async function checkNotes(user_id) {
 }
 
 app.get("/", async (req,res) => {
+    if (currentUserId === 0) {
+        const result = await db.query("SELECT id FROM users ORDER BY id ASC LIMIT 1");
+        if (result.rows.length > 0) {
+            currentUserId = result.rows[0].id;
+        }
+    }
     const users = await checkUsers();
     const notes = await checkNotes(currentUserId);
     res.render("index.ejs", {
         users: users,
+        currentUserId: currentUserId,
         notes: notes
     });
 });
