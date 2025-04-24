@@ -12,11 +12,17 @@
 
     <div class="menu">
         <form method="post">
-            <% users.forEach(user => { %>
-                <input type="submit" name="user" value="<%= user.name %>" formaction="/user">
-            <% }); %>
+            <% if (users.length > 0) { %>
+                <% users.forEach(user => { %>
+                    <% if (user.id == currentUserId) { %>
+                        <input type="submit" name="user" value="<%= user.name %>" formaction="/user" style="background-color: yellow; color: black;">
+                    <% } else { %>
+                        <input type="submit" name="user" value="<%= user.name %>" formaction="/user">
+                    <% }; %>
+                <% }) %>
+                <input type="submit" value="Review Book" formaction="/addReview">
+            <% } %>
             <input type="submit" name="add" value="Add User" formaction="/addUser">
-            <input type="submit" value="Review Book" formaction="/addReview">
         </form>
     </div>
     

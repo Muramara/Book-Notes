@@ -13,13 +13,18 @@ html,body {
     flex-direction: row;
     width: 100px;
 }
+.menu input:hover {
+    cursor: pointer;
+    background-color: orange !important;
+    color: white !important;
+}
 .menu input[type=submit] {
     border: none;
     width: 100%;
     padding: 16px 8px;
     text-decoration: none;
     margin: 4px 2px;
-    cursor: pointer;
+    /* cursor: pointer; */
     text-align: left;
 }
 .outer-rev {
